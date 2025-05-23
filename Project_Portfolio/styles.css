@@ -1,0 +1,207 @@
+/* Basic reset - removes default browser margins, paddings, and changes how width/height is calculated */
+* {
+    margin: 0;                /* Removes default margin from all elements */
+    padding: 0;               /* Removes default padding from all elements */
+    box-sizing: border-box;   /* Makes width/height include padding and border (not just content) */
+  }
+  
+  /* Body styles - controls the main page container */
+  body {
+    position: relative;       /* Allows absolute positioning of child elements relative to body */
+    background-image: url("Background.jpg");  /* Sets background image */
+    background-size: cover;   /* Makes background image cover entire element */
+    background-repeat: no-repeat;  /* Prevents background image from repeating */
+    min-height: 100vh;        /* Sets minimum height to 100% of viewport height */
+    line-height: 1.5;         /* Sets line spacing to 1.5 times the font size */
+    font-size: 16px;          /* Sets base font size for the page */
+  }
+  
+  /* Dark overlay on background - adds a semi-transparent layer over the background image */
+  body::after {
+    content: "";              /* Required for pseudo-elements to display */
+    position: absolute;       /* Positions element relative to nearest positioned ancestor (body) */
+    top: 0;                   /* Aligns to top edge */
+    left: 0;                  /* Aligns to left edge */
+    right: 0;                 /* Stretches to right edge */
+    bottom: 0;                /* Stretches to bottom edge */
+    background-color: rgba(91, 91, 91, 0.5);  /* Grey color with 50% transparency */
+    z-index: 0;               /* Positions overlay behind content (z-index: 1) */
+  }
+  
+  /* Makes all direct children of body appear above the overlay */
+  body > * {
+    position: relative;       
+    z-index: 1;               /* Places content above the overlay (z-index: 0) */
+    padding: 32px 5%;        
+    max-width: 1200px;        /* Limits width to 1200px max */
+    margin: 0 auto;           /* Centers content horizontally */
+  }
+  
+  /* Header styles - controls the top navigation bar */
+  header {
+    position: fixed;          
+    top: 0;                   
+    left: 0;                  
+    right: 0;                 
+    height: 70px;             /* Sets exact height for header */
+    display: flex;            /* Uses flexbox layout */
+    justify-content: space-between;  /* Pushes flex items to opposite ends */
+    align-items: center;      /* Centers items vertically */
+    padding: 16px 5%;         
+    z-index: 1000;            /* Ensures header appears above all other content */
+    color: white;             /* Sets text color */
+    backdrop-filter: blur(4px);  /* Blurs content behind the header */
+    font-size: 16px;          /* Sets font size for header text */
+    width: 100%;              /* Makes header full width */
+  }
+  
+  main {
+    padding-top: 80px;        /* Adds space at top to prevent content from going under header */
+  }
+  
+  /* Navigation list styling - controls how the navigation links are displayed */
+  nav ul {
+    list-style: none;         /* Removes bullet points from list */
+    display: flex;            /* Uses flexbox layout (horizontal by default) */
+    gap: 24px;                /* Adds 24px spacing between navigation items */
+  }
+  
+  /* Navigation links - controls appearance of nav links */
+  nav a {
+    text-decoration: none;    /* Removes underline from links */
+    color: white;             /* Sets link text color */
+    font-size: 16px;          /* Sets font size for links */
+    position: relative;       /* Needed for absolute positioning of pseudo-elements */
+    padding-bottom: 3px;      /* Adds space below text for the underline effect */
+    transition: all 0.3s ease;  /* Makes all property changes animate over 0.3 seconds */
+  }
+  
+  /* Navigation hover effect - changes color when mouse hovers over links */
+  nav a:hover {
+    color: #b786e0;           /* Changes text color to purple on hover */
+  }
+  
+  /* Animated underline effect - creates a line that grows when hovering */
+  nav a::after {
+    content: '';              /* Required for pseudo-elements to display */
+    position: absolute;       /* Positions relative to the nav link */
+    width: 0;                 /* Starts with zero width (invisible) */
+    height: 2px;              /* Sets thickness of underline */
+    bottom: 0;                /* Positions at bottom of link */
+    left: 0;                  /* Aligns to left edge */
+    background-color: #b786e0;  /* Sets color of underline to match hover text */
+    transition: width 0.5s ease;  /* Animates width change over 0.3 seconds */
+  }
+  
+  /* Controls underline width on hover */
+  nav a:hover::after {
+    width: 100%;              /* Expands underline to full width on hover */
+  }
+  
+  .hamburger {
+    display: none;            /* Hides element from view (and layout) */
+  }
+  
+  /* Mobile styles - will apply when screen width is 768px or less */
+  @media (max-width: 768px) {
+    /* Show hamburger menu on mobile */
+    .hamburger {
+      display: block;         /* Makes hamburger menu visible */
+      font-size: 24px;        /* Sets size of hamburger icon */
+      cursor: pointer;        /* Changes cursor to hand when hovering */
+      background: none;       /* Removes default button background */
+      border: none;           /* Removes default button border */
+      color: white;           /* Sets icon color */
+    }
+    
+    /* Mobile navigation styling */
+    nav {
+      position: absolute;     /* Takes nav out of normal flow */
+      top: 70px;              /* Positions below header */
+      right: 0;               /* Aligns to right edge */
+      background-color: rgba(0, 0, 0, 0.9);  
+      width: 100%;            /* Makes nav full width */
+      display: none;          /* Hides nav by default */
+    }
+    
+    /* Show navigation when toggled */
+    nav.show {
+      display: block;         /* Makes nav visible when it has 'show' class */
+    }
+    
+    /* Stack navigation items vertically on mobile */
+    nav ul {
+      flex-direction: column; /* Changes flex direction to vertical */
+      gap: 0;                 /* Removes spacing between items */
+    }
+    
+    /* Add borders between nav items */
+    nav li {
+      border-bottom: 1px solid #444;  /* Adds grey line between menu items */
+    }
+    
+    /* Make nav links full width and easier to tap */
+    nav a {
+      padding: 16px;          /* Adds spacing inside links for larger tap target */
+      display: block;         /* Makes link take full width */
+    }
+  }
+
+.hero {
+  display: flex;
+  flex-direction: column;    /* Stack items vertically */
+  align-items: flex-start;   /* Align items to the left */
+  justify-content: center;   /* Center them vertically */
+  height: 100vh;             /* Optional: full height */
+  padding-left: 60px;        /* Add space from the left edge */
+  gap: 20px;                 /* Space between elements */
+  text-align: left;          /* Align text to the left */
+  color: white;
+  font-size: 30px;
+}
+
+.highlight{
+  color: #cb9dff;
+
+}
+
+.hero p {
+  font-size: 20px;
+  
+}
+
+.cta-button {
+  padding: 5px 20px;
+  background-color: #6f42c1;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #5a369e;
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("xaiver.jpg"); /* Replace with your actual image file */
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.4; /* Optional: makes sure text is still readable */
+  z-index: -1;  /* Places it behind main content but above body overlay */
+  border: solid 1px white;
+  border-radius: 30%;
+}
+
+main {
+  position: relative; /* Needed for the ::before pseudo-element */
+  padding-top: 80px;
+}
+  
