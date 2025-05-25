@@ -7,7 +7,7 @@
 
 body {
     min-height: 100vh;
-    background: url('../Image/Background4.jpg') no-repeat center top fixed;
+    background: url('Image/Background4.jpg') no-repeat center top fixed;
     background-size: cover;
     position: relative;
     color: #fff;
