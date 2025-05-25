@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Portfolio </title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="projects.css">
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="index.html" class="logo">PR<span>OJECTS</span></a>
+        </div>
+        <div class="nav-toggle" id="navToggle">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="projects.html" class="nav-link active">Projects</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="projects-section" id="projects">
+        <div class="projects-container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <!-- Project Card 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="../Image/project1.png" alt="Project 1 Preview">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com/Theyah08/my_first_program/blob/main/Improved%20ATMSYSTEM" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>1st Program</h3>
+                        <p>This is my first Java program an ATM simulation system. It lets users register accounts with a PIN, log in securely, check their balance, deposit, and withdraw money. It uses HashMap to store account numbers, PINs, and balances, and Scanner for user input. This project helped me understand basic concepts like conditionals, loops, user input, and data storage in Java.</p>
+                        <div class="project-tech">
+                            <span>GitHub</span>
+                            <span>VSCode</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="../Image/project2.png" alt="Project 2 Preview">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://theyah08.github.io/104_HTML/" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="https://github.com/Theyah08/104_HTML" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>104 HTML</h3>
+                        <p>This project was made for my CSS/HTML exam. It shows a basic webpage with a navigation bar, heading, tasks, and a grid layout. I used an external CSS file for styling to apply what I’ve learned about webpage structure and design.</p>
+                        <div class="project-tech">
+                            <span>CSS</span>
+                            <span>HTML</span>
+                            <span>GitHub</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="../Image/project3.png" alt="Project 3 Preview">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com/Theyah08/Student_Grade_Calculator" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Student Grade Calculator</h3>
+                        <p>The Student Grade Calculator is a Java program that reads student names and grades from a file. If the file doesn't exist, it creates one with sample data. It then displays each grade and calculates the average. This project shows basic file handling and data processing using Java.</p>
+                        <div class="project-tech">
+                            <span>GitHub</span>
+                            <span>VSCode</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/Theyah08" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.facebook.com/aliyahothelia.piel/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/yaneonart/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2024 Aliyah. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
